@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+use App\http\Controllers\CattleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});*/
+
+
+Route::get('/user', function () {
+    return Auth::id();
 });
+
+
+/*Route::get('/cattles', [CattleController::class,'index']);
+Route::post('/cattle/store', [CattleController::class,'store']);
+Route::get('/cattle/show', [CattleController::class,'store']);*/
+
+
+Route::resource('cattles', CattleController::class);
+Route::get('/cattles/search/{string}', [CattleController::class,'search']);

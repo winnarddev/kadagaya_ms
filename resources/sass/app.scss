@@ -6,3 +6,28 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+header{
+    background-color: blanchedalmond;;
+}
+
+h2{
+    color: $white;
+}
+
+a{
+    color: $white;
+}
+
+.sidebar{   
+    min-height: calc(100vh - 50px);
+}
+
+.sidebar .nav a{
+    color: $white;    
+}
+
+.sidebar .nav a.active{
+    font-weight: bold;
+    color: aquamarine;
+}

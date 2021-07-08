@@ -12,4 +12,18 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Example');
+//require('./components/Example');
+/*
+import ReactDOM from 'react-dom';
+import Dashboard from './components/Dashboard';
+//import Example from './components/Example';
+
+
+if (document.getElementById('main-app')) {
+    ReactDOM.render(<Dashboard />, document.getElementById('main-app'));
+}*/
+
+require('./components/App');
+
+//CSS for ANT UI
+require('antd/dist/antd.css');
