@@ -44,12 +44,14 @@ class CattleController extends Controller
             'dateofbirth' => '2021-01-21',
             'gender'=> 'Male',
         ]);*/
+        
 
         $request->validate([
             'dateofbirth' => 'required',
             'breed' => 'required',
             'gender' => 'required',
         ]);
+
 
         return Cattle::create($request->all());
     }
