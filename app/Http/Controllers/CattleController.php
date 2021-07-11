@@ -15,7 +15,8 @@ class CattleController extends Controller
      */
     public function index()
     {
-        return Cattle::all();
+        return Cattle::orderBy('id','desc')->get();
+
     }
 
     /**
