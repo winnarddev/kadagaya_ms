@@ -15,7 +15,7 @@ class CreateMilkTallyTable extends Migration
     {
         Schema::create('milk_tally', function (Blueprint $table) {
             $table->id();
-            $table->foreign('cattle_id')->references('id')->on('cattles');
+            $table->integer('cattle_id');
             $table->date('date');
             $table->string('session');
             $table->integer('qty');

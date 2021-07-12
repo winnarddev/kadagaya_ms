@@ -6,29 +6,29 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-use App\Models\MilkTally;
+use App\Models\Cattle;
 
-class Cattle extends Model
+class MilkTally extends Model
 {
     use HasFactory;
+
     use SoftDeletes;
 
 
     protected $table ='cattles';
 
     protected $fillable = [
-        'tag',
-        'name',
-        'origin',
-        'type',
-        'breed',
-        'dateofbirth',
-        'gender',
+        'cattle_id',
+        'date',
+        'session',
+        'qty',        
     ];
 
-    public function milkTally()
+
+    public function cattle()
     {
-        return $this->hasMany(MilkTally::class);
+        return $this->belongsTo(Cattle::class);
     }
 
- }
+
+}
