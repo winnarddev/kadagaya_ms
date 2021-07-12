@@ -7,10 +7,14 @@ import SidebarNav from "./layouts/SidebarNav";
 import Dashboard from './Dashboard';
 import Test from './Test';
 import Cattle from './cattle/Cattle';
+import MilkTally from './milkTally/MilkTally';
 
 
 
 const App = () => {
+
+
+
     return (
 
 
@@ -30,6 +34,7 @@ const App = () => {
                             <Route path='/test' component={Test} />
                             <Route exact path='/dashboard' component={Dashboard} />
                             <Route exact path='/cattle' component={Cattle} />
+                            <Route exact path='/milktally' component={MilkTally} />
 
 
 
