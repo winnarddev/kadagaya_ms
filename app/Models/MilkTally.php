@@ -15,7 +15,7 @@ class MilkTally extends Model
     use SoftDeletes;
 
 
-    protected $table ='cattles';
+    protected $table ='milk_tally';
 
     protected $fillable = [
         'cattle_id',
@@ -27,7 +27,7 @@ class MilkTally extends Model
 
     public function cattle()
     {
-        return $this->belongsTo(Cattle::class);
+       // return $this->belongsTo(Cattle::class);
     }
 
 

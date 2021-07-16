@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 use App\http\Controllers\CattleController;
+use App\http\Controllers\MilkTallyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,5 @@ Route::get('/cattle/show', [CattleController::class,'store']);*/
 
 Route::resource('cattles', CattleController::class);
 Route::get('/cattles/search/{string}', [CattleController::class,'search']);
+
+Route::resource('/milktally',MilkTallyController::class);
