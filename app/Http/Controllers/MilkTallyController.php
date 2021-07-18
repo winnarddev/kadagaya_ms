@@ -15,7 +15,7 @@ class MilkTallyController extends Controller
      */
     public function index()
     {
-        return MilkTally::orderBy('id','desc')->get();
+        return MilkTally::orderBy('id','desc')->with('cattle')->get();
 
     }
 
@@ -27,16 +27,29 @@ class MilkTallyController extends Controller
      */
     public function store(Request $request)
     {
-    
+        //$input = $request->all();
         $request->validate([
             'cattle_id' => 'required',
-            'date' => 'required',
-            'session' => 'required',
-            'qty' => 'required',
+            'date' => 'required',           
         ]);
 
 
-        return MilkTally::create($request->all());
+        $data = MilkTally::create($request->all());
+        //$data = new MilkTally; //::create($request->all());
+        //$data->cattle_id = $input['cattle_id'];
+        //$data->date = $input['date'];
+        //$data->session = $input['session'];
+        //$data->qty = $input['qty'];
+        //$data->save();
+        $data->load('cattle');
+        return $data;
+
+        //return MilkTally::where('id','=',$data->id)->with('cattle')->get();
+
+       
+
+        
+        
     }
 
 
@@ -63,14 +76,13 @@ class MilkTallyController extends Controller
     {
         $request->validate([
             'cattle_id' => 'required',
-            'date' => 'required',
-            'session' => 'required',
-            'qty' => 'required',
+            'date' => 'required',           
         ]);
 
 
         $MilkTally = MilkTally::find($id);
         $MilkTally->update($request->all());
+        $MilkTally->load('cattle');
         return $MilkTally;
     }
 
@@ -84,6 +96,15 @@ class MilkTallyController extends Controller
     {
        
         return MilkTally::destroy($id);
+    }
+
+
+    public function checkrecord($cattle, $date){
+       // return $cattle;
+        
+       $data = MilkTally::where('cattle_id','=',$cattle)->where('date','=', $date)->first();
+       return $data;
+
     }
 
 

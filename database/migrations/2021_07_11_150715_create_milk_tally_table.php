@@ -17,8 +17,8 @@ class CreateMilkTallyTable extends Migration
             $table->id();
             $table->integer('cattle_id');
             $table->date('date');
-            $table->string('session');
-            $table->integer('qty');
+            $table->integer('am_qty')->nullable();
+            $table->integer('pm_qty')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -20,14 +20,14 @@ class MilkTally extends Model
     protected $fillable = [
         'cattle_id',
         'date',
-        'session',
-        'qty',        
+        'am_qty',
+        'pm_qty',        
     ];
 
 
     public function cattle()
     {
-       // return $this->belongsTo(Cattle::class);
+        return $this->belongsTo(Cattle::class);
     }
 
 
