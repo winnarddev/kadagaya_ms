@@ -1,74 +1,63 @@
 import React, { useEffect, useState } from 'react';
+import { Alert, Spin } from 'antd';
 
-import { Table } from 'antd';
 
-const ListMilkTally = ({ listData, loadingMilkTallyData }) => {
 
-    console.log(listData);
-
-    const columns = [
-        {
-            title: 'Date',
-            dataIndex: 'date',
-            key: 'date',
-        },
-        {
-            title: 'Name',
-            dataIndex: ['cattle', 'name'],
-            key: 'name',
-        },
-        {
-            title: 'AM Qty',
-            dataIndex: 'am_qty',
-            key: 'am_qty',
-        },
-        {
-            title: 'PM Qty',
-            dataIndex: 'pm_qty',
-            key: 'pm_qty',
-        },
-    ];
+const ListMilkTally = ({ listData, loadingMilkTallyData, listFailure }) => {
 
     return (
-        <>
+        <div>
             {loadingMilkTallyData}
 
-            <table className="table">
+            {listFailure == true ? (
+                <Alert message="System Error. Please check internet connection" type="error" />
+            ) : (
 
-                <thead>
-                    <tr>
-                        <td>Id</td>
-                        <td>Date</td>
-                        <td>Name</td>
-                        <td>AM Qty</td>
-                        <td>PM Qty</td>
-                    </tr>
-                </thead>
+                loadingMilkTallyData == false ? (
+                    listData.length > 0 ? (
+                        <table className="table mt-2">
 
-                <tbody>
+                            <thead>
+                                <tr>
+                                    <td>Id</td>
+                                    <td>Date</td>
+                                    <td>Name</td>
+                                    <td>AM Qty</td>
+                                    <td>PM Qty</td>
+                                </tr>
+                            </thead>
 
-                    {listData.map((data, key) => (
+                            <tbody>
 
-                        <tr key={key}>
+                                {listData.map((data, key) => (
 
-
-                            <td>{data.id}</td>
-                            <td>{data.date}</td>
-                            <td>{data.cattle.name}</td>
-                            <td>{data.am_qty}</td>
-                            <td>{data.pm_qty}</td>
-
-                        </tr>
-
-                    ))}
-
-                </tbody>
-
-            </table>
+                                    <tr key={key}>
 
 
+                                        <td>{data.id}</td>
+                                        <td>{data.date}</td>
+                                        <td>{data.cattle.name}</td>
+                                        <td>{data.am_qty ? (data.am_qty) : ("-")}</td>
+                                        <td>{data.pm_qty ? (data.pm_qty) : ("-")}</td>
 
-        </>
+                                    </tr>
+
+                                ))}
+
+                            </tbody>
+
+                        </table>
+                    ) : ('No results Found')
+                ) : <Spin size="large" />
+
+            )}
+
+
+
+
+
+
+        </div>
 
     );
 

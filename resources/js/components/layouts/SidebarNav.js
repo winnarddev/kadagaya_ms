@@ -18,7 +18,7 @@ function SidebarNav() {
                         <NavLink to="/milktally" activeClassName="active">Milk Tally</NavLink>
                     </li>
                     <li className="nav-item pt-2 pb-2">
-                        <NavLink to="/test2" activeClassName="active">Test</NavLink>
+                        <a href="/logout" activeClassName="active">Logout</a>
                     </li>
                 </ul>
             </div>

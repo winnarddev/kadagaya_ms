@@ -4,8 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-use App\http\Controllers\CattleController;
-use App\http\Controllers\MilkTallyController;
+use App\Http\Controllers\CattleController;
+use App\Http\Controllers\MilkTallyController;
 
 /*
 |--------------------------------------------------------------------------

@@ -14,10 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    //return view('auth.login');
+    return Redirect::to('/login');
 });
 
 Auth::routes();
+
+Route::get('logout', function () {
+    Auth::logout();
+    return Redirect::to('/');
+});
+
 //Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('home');
 
 //Route::get('/home', [App\Http\Controllers\DashboardController::class, 'index'])->name('home');
