@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Table, Alert, Spin } from 'antd';
+import { Table, Alert, Divider } from 'antd';
 
 
 
@@ -9,11 +9,6 @@ const ListCattle = ({ list, listLoading, listFailure }) => {
 
 
     const columns = [
-        {
-            title: 'Tag',
-            dataIndex: 'tag',
-            key: 'tag',
-        },
         {
             title: 'Name',
             dataIndex: 'name',
@@ -25,20 +20,9 @@ const ListCattle = ({ list, listLoading, listFailure }) => {
             key: 'gender',
         },
         {
-            title: 'Origin',
-            dataIndex: 'origin',
-            key: 'origin',
-        },
-        {
             title: 'Breed',
             dataIndex: 'breed',
             key: 'breed',
-        },
-
-        {
-            title: 'Date of Birth',
-            dataIndex: 'dateofbirth',
-            key: 'dateofbirth',
         },
     ];
 
@@ -47,13 +31,15 @@ const ListCattle = ({ list, listLoading, listFailure }) => {
     return (
         <>
 
+            {console.log(list)}
+
             {listFailure == true ? (
                 <Alert message="System Error. Please check internet connection" type="error" />
             ) : (
 
                 listLoading == false ? (
                     list.length > 0 ? (<Table className="mt-3" rowKey="id" columns={columns} dataSource={list} />) : ('No results Found')
-                ) : <Spin />
+                ) : 'Loading..'
 
             )}
 

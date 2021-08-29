@@ -15,9 +15,7 @@ const MilkTally = () => {
 
     const [MilkTallyData, setMilkTallyData] = React.useState([]);
 
-    const [loadingMilkTallyData, setoadingMilkTallyData] = React.useState(true);
-
-    const [listFailure, setlistFailure] = React.useState(false);
+    const [loadingMilkTallyData, setoadingMilkTallyData] = React.useState('Loading...');
 
     useEffect(() => {
 
@@ -38,12 +36,10 @@ const MilkTally = () => {
         axios.get('/api/milktally')
             .then(function (response) {
                 setMilkTallyData(response.data);
-                setoadingMilkTallyData(false);
-                setlistFailure(false);
+                setoadingMilkTallyData('');
             })
             .catch(function (error) {
                 console.log(error);
-                setlistFailure(true);
             });
     }
 
@@ -75,7 +71,6 @@ const MilkTally = () => {
     };
 
     const onUpdateSubmit = ({ id, cattle_id, date, am_qty, pm_qty }) => {
-
 
         axios.put(`/api/milktally/${id}`, {
             cattle_id, date, am_qty, pm_qty
@@ -115,7 +110,7 @@ const MilkTally = () => {
             <AddMilkTally onAdd={() => setAddMilkTally(!showAddMilkTally)}
                 showAdd={showAddMilkTally} ListCattles={ListCattles} onAddSumbit={onAddSumbit} onUpdateSubmit={onUpdateSubmit} />
 
-            <ListMilkTally listData={MilkTallyData} loadingMilkTallyData={loadingMilkTallyData} listFailure={listFailure} />
+            <ListMilkTally listData={MilkTallyData} loadingMilkTallyData={loadingMilkTallyData} />
 
 
 

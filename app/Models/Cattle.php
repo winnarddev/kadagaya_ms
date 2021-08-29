@@ -17,7 +17,6 @@ class Cattle extends Model
     protected $table ='cattles';
 
     protected $fillable = [
-        'user_id',
         'tag',
         'name',
         'origin',

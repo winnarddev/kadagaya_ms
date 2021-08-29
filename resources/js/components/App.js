@@ -56,7 +56,6 @@ const App = () => {
 export default App;
 
 
-
 if (document.getElementById('main-app')) {
     ReactDOM.render(<App />, document.getElementById('main-app'));
 }

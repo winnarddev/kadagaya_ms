@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Cattle;
-//use Illuminate\Support\Facades\Auth;
-
-use Auth;
 
 class CattleController extends Controller
 {
@@ -48,7 +45,6 @@ class CattleController extends Controller
             'dateofbirth' => '2021-01-21',
             'gender'=> 'Male',
         ]);*/
-        $user_id = 1;      
         
 
         $request->validate([
@@ -57,20 +53,8 @@ class CattleController extends Controller
             'gender' => 'required',
         ]);
 
-        $array = array(
-            'user_id' => $user_id,
-            'tag' => $request->input('tag'),
-            'name' => $request->input('name'),
-            'origin' => $request->input('origin'),
-            'type' => $request->input('type'),
-            'breed' => $request->input('breed'),
-            'dateofbirth' => $request->input('dateofbirth'),
-            'gender' => $request->input('gender'),
-            
-        );
-        return Cattle::create($array);
 
-        ///return Cattle::create($request->all());
+        return Cattle::create($request->all());
     }
 
     /**

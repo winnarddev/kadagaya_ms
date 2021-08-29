@@ -4,8 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\CattleController;
-use App\Http\Controllers\MilkTallyController;
+//use App\http\Controllers\CattleController;
+//use App\http\Controllers\MilkTallyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +33,9 @@ Route::post('/cattle/store', [CattleController::class,'store']);
 Route::get('/cattle/show', [CattleController::class,'store']);*/
 
 
-Route::resource('cattles', CattleController::class);
-Route::get('/cattles/search/{string}', [CattleController::class,'search']);
+Route::resource('cattles', App\Http\Controllers\CattleController::class);
+Route::get('/cattles/search/{string}', [App\Http\Controllers\CattleController::class,'search']);
 
-Route::resource('/milktally',MilkTallyController::class);
-//Route::get('/milktally/check/{$cattle_id}/{$date}',[MilkTallyController::class, 'check_record']);
-Route::get('/milktally/check/{cattle}/{date}',[MilkTallyController::class, 'checkrecord']);
+Route::resource('/milktally',App\Http\Controllers\MilkTallyController::class);
+Route::get('/milktally/check/{$cattle_id}/{$date}',[App\Http\Controllers\MilkTallyController::class, 'check_record']);
+Route::get('/milktally/check/{cattle}/{date}',[App\Http\Controllers\MilkTallyController::class, 'checkrecord']);
