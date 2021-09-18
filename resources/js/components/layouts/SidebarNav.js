@@ -1,27 +1,62 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 
+import { Menu, Icon } from 'antd';
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+
+const { SubMenu } = Menu;
 
 function SidebarNav() {
     return (
 
         <>
-            <div className="sidebar">
+
+            <Menu
+                style={{ width: '100%' }}
+                defaultSelectedKeys={[location.pathname]}
+
+                mode="inline"
+                theme="dark"
+            >
+
+                <Menu.Item key="/dashboard" icon={<MailOutlined />}>
+                    <NavLink to="/dashboard">
+                        <span>Dashboard</span>
+                    </NavLink>
+                </Menu.Item>
+                <Menu.Item key="/cattle" icon={<AppstoreOutlined />}>
+                    <NavLink to="/cattle">
+                        <span>Cattle</span>
+                    </NavLink>
+                </Menu.Item>
+                <Menu.Item key="/milktally" icon={<SettingOutlined />}>
+                    <NavLink to="/milktally">
+                        <span>Milk Tally</span>
+                    </NavLink>
+                </Menu.Item>
+                <Menu.Item key="/logout" icon={<AppstoreOutlined />}>
+                    <a href="/logout" >Logout</a>
+                </Menu.Item>
+
+            </Menu>
+
+            {/* <div className="sidebar pt-3">
                 <ul className="nav navbar-nav flex-column">
                     <li className="nav-item pt-2 pb-2">
-                        <NavLink to="/dashboard" activeClassName="active">Dashboard</NavLink>
+                        <NavLink to="/dashboard" >Dashboard</NavLink>
                     </li>
                     <li className="nav-item pt-2 pb-2">
-                        <NavLink to="/cattle" activeClassName="active">Cattle</NavLink>
+                        <NavLink to="/cattle" >Cattle</NavLink>
                     </li>
                     <li className="nav-item pt-2 pb-2">
-                        <NavLink to="/milktally" activeClassName="active">Milk Tally</NavLink>
+                        <NavLink to="/milktally" >Milk Tally</NavLink>
                     </li>
                     <li className="nav-item pt-2 pb-2">
-                        <a href="/logout" activeClassName="active">Logout</a>
+                        <a href="/logout" >Logout</a>
                     </li>
                 </ul>
             </div>
+    */}
         </>
 
     );

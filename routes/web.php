@@ -31,3 +31,6 @@ Route::get('logout', function () {
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 Route::get('/cattle', [App\Http\Controllers\DashboardController::class, 'index'])->name('cattle');
 Route::get('/milktally', [App\Http\Controllers\DashboardController::class, 'index'])->name('milktally');
+
+
+Route::get('/cattle/profile/{id}', [App\Http\Controllers\DashboardController::class, 'index'])->name('cattleprofile');

@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\Models\MilkTally;
 
+use Illuminate\Support\Facades\DB;
+
 class Cattle extends Model
 {
     use HasFactory;
@@ -31,5 +33,7 @@ class Cattle extends Model
     {
         return $this->hasMany(MilkTally::class);
     }
+
+
 
  }

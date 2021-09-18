@@ -108,4 +108,16 @@ class MilkTallyController extends Controller
     }
 
 
+    public function get_cattle_milk_tally(Request $request,$cattle){
+        
+        $data = MilkTally::where('cattle_id','=',$cattle)->paginate( isset($request->limit) ?  $request->limit : 20 );
+        
+        return $data;
+
+    }
+
+
+    
+
+
 }

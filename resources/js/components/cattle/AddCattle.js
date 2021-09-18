@@ -6,7 +6,7 @@ import { FileAddOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
 
-const AddCattle = () => {
+const AddCattle = ({ ListCattles }) => {
 
 
 
@@ -118,11 +118,27 @@ const AddCattle = () => {
                     </Form.Item>
 
                     <Form.Item label="Origin" name="origin">
-                        <Input />
+                        <Select >
+                            <Select.Option value="NDA (Loan)">NDA (Loan)</Select.Option>
+                            <Select.Option value="Acquired">Acquired</Select.Option>
+                            {ListCattles.map((data, key) => (
+                                data.gender == "Female" ?
+                                    (<Select.Option value={data.id}>{data.name}</Select.Option>)
+                                    : null
+                            ))}
+                        </Select>
+
                     </Form.Item>
 
                     <Form.Item label="Breed" name="breed" >
-                        <Input />
+                        <Select >
+                            <Select.Option value="Native">Native</Select.Option>
+                            <Select.Option value="Native-Holstein">Native-Holstein</Select.Option>
+                            <Select.Option value="Holstein">Holstein</Select.Option>
+                            <Select.Option value="Brahman">Brahman</Select.Option>
+                            <Select.Option value="Native-Brahman">Native-Brahman</Select.Option>
+
+                        </Select>
                     </Form.Item>
 
                     <Form.Item label="Gender" name="gender" rules={[{ required: true, message: 'Gender is required!' }]}>

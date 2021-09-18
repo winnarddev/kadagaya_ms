@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Cattle;
+use App\Models\MilkTally;
 //use Illuminate\Support\Facades\Auth;
 
 use Auth;
@@ -81,7 +82,19 @@ class CattleController extends Controller
      */
     public function show($id)
     {
-        return Cattle::find($id);
+        $cattle =  Cattle::find($id);
+        $total_milk = MilkTally::TotalMilk($id)->first();
+        
+        $average_milk_format = 0;
+
+        if(!is_null($total_milk->total_milk)){
+            $average_milk = $total_milk->total_milk  / $total_milk->total_date;
+            $average_milk_format = number_format($average_milk,2);
+        }
+
+        $cattle->total_milk = !is_null($total_milk->total_milk) ? $total_milk->total_milk : 0;
+        $cattle->average_milk_per_day = $average_milk_format;
+        return $cattle;
     }
 
     /**
@@ -137,4 +150,16 @@ class CattleController extends Controller
     {
         return Cattle::where('name','like','%'.$string.'%')->orwhere('tag','like','%'.$string.'%')->get();
     }
+
+    
+    public function test(){
+        $tes =  Cattle::find(21);
+        $tes->total_milk = MilkTally::TotalMilk(21)->first()->total_milk;
+        return $tes;
+
+        //return MilkTally::TotalMilk(21)->first();
+    }
+
+
+
 }

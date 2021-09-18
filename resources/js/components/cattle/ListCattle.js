@@ -52,7 +52,42 @@ const ListCattle = ({ list, listLoading, listFailure }) => {
             ) : (
 
                 listLoading == false ? (
-                    list.length > 0 ? (<Table className="mt-3" rowKey="id" columns={columns} dataSource={list} />) : ('No results Found')
+                    /*list.length > 0 ? (<Table className="mt-3" rowKey="id" columns={columns} dataSource={list} />) : ('No results Found')*/
+                    <table className="table mt-2">
+
+                        <thead>
+                            <tr>
+                                <td>Tag</td>
+                                <td>Name</td>
+                                <td>Gender</td>
+                                <td>Origin</td>
+                                <td>Breed</td>
+                                <td>Date of Birth</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            {list.map((data, key) => (
+
+                                <tr key={key}>
+
+
+                                    <td>{data.tag}</td>
+                                    <td>{data.name}</td>
+                                    <td>{data.gender}</td>
+                                    <td>{data.origin}</td>
+                                    <td>{data.breed}</td>
+                                    <td>{data.dateofbirth}</td>
+                                    <td><a href={`cattle/profile/${data.id}`}>View</a></td>
+
+                                </tr>
+
+                            ))}
+
+                        </tbody>
+
+                    </table>
                 ) : <Spin />
 
             )}

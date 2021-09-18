@@ -14,8 +14,6 @@ import axios from 'axios';
 const Cattle = () => {
 
 
-
-
     const [ListCattles, setListCattles] = React.useState([{}]);
     const [listLoading, setlistLoading] = React.useState(true);
     const [listFailure, setlistFailure] = React.useState(false);
@@ -61,7 +59,7 @@ const Cattle = () => {
     return (
         <>
             <Menu mode="horizontal">
-                <AddCattle />
+                <AddCattle ListCattles={ListCattles} />
             </Menu>
 
             <ListCattle list={ListCattles} listLoading={listLoading} listFailure={listFailure} />

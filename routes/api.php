@@ -39,3 +39,8 @@ Route::get('/cattles/search/{string}', [CattleController::class,'search']);
 Route::resource('/milktally',MilkTallyController::class);
 //Route::get('/milktally/check/{$cattle_id}/{$date}',[MilkTallyController::class, 'check_record']);
 Route::get('/milktally/check/{cattle}/{date}',[MilkTallyController::class, 'checkrecord']);
+Route::get('/milktally/getcattlemilktally/{cattle}',[MilkTallyController::class, 'get_cattle_milk_tally']);
+
+
+
+Route::get('/test',[CattleController::class, 'test']);

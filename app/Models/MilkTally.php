@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\Models\Cattle;
 
+
+
+
 class MilkTally extends Model
 {
     use HasFactory;
@@ -29,6 +32,16 @@ class MilkTally extends Model
     {
         return $this->belongsTo(Cattle::class);
     }
+
+
+    public function scopeTotalMilk($query,$id)
+    {
+        return $query->selectraw('SUM(am_qty) + SUM(pm_qty) as total_milk, count(date) as total_date')->where('cattle_id','=',$id);
+    }
+
+
+    
+   
 
 
 }
