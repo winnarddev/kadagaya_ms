@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Button } from 'antd';
+import { Button, Menu } from 'antd';
 import { FileAddOutlined } from '@ant-design/icons';
 
 import AddMilkTally from './AddMilkTally'
@@ -108,9 +108,15 @@ const MilkTally = () => {
         <>
 
 
-            <Button type="primary" icon={<FileAddOutlined />} onClick={() => setAddMilkTally(!showAddMilkTally)}>
-                Add Milk Tally
-            </Button>
+
+            <Menu mode="horizontal">
+                <Menu.Item key="add_milk_tally" icon={<FileAddOutlined />} onClick={() => setAddMilkTally(!showAddMilkTally)}>
+                    Add Milk Tally
+                </Menu.Item>
+
+            </Menu>
+
+
 
             <AddMilkTally onAdd={() => setAddMilkTally(!showAddMilkTally)}
                 showAdd={showAddMilkTally} ListCattles={ListCattles} onAddSumbit={onAddSumbit} onUpdateSubmit={onUpdateSubmit} />

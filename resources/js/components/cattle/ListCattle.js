@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { NavLink } from 'react-router-dom'
 import { Table, Alert, Spin } from 'antd';
 
 
@@ -79,7 +79,11 @@ const ListCattle = ({ list, listLoading, listFailure }) => {
                                     <td>{data.origin}</td>
                                     <td>{data.breed}</td>
                                     <td>{data.dateofbirth}</td>
-                                    <td><a href={`cattle/profile/${data.id}`}>View</a></td>
+                                    <td>
+                                        <NavLink to={`cattle/profile/${data.id}`}>
+                                            <span>View</span>
+                                        </NavLink>
+                                    </td>
 
                                 </tr>
 

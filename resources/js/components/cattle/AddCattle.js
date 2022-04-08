@@ -14,11 +14,7 @@ const AddCattle = ({ ListCattles }) => {
 
 
     const [confirmLoading, setConfirmLoading] = React.useState(false);
-
-
     const [AddCattleForm, setAddCattleForm] = React.useState(false);
-
-
     const [dateformat, setDateformat] = React.useState(false);
 
 
@@ -82,7 +78,7 @@ const AddCattle = ({ ListCattles }) => {
         <>
 
 
-            <Menu.Item key="mail" onClick={showAddCattleForm} icon={<FileAddOutlined />}>
+            <Menu.Item key="add_cattle" onClick={showAddCattleForm} icon={<FileAddOutlined />}>
                 Add Cattle
             </Menu.Item>
 

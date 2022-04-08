@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom'
 
 import { Menu, Icon } from 'antd';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, MailOutlined, SettingOutlined, LoginOutlined, DashboardOutlined, UnorderedListOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -19,7 +19,7 @@ function SidebarNav() {
                 theme="dark"
             >
 
-                <Menu.Item key="/dashboard" icon={<MailOutlined />}>
+                <Menu.Item key="/dashboard" icon={<DashboardOutlined />}>
                     <NavLink to="/dashboard">
                         <span>Dashboard</span>
                     </NavLink>
@@ -29,12 +29,12 @@ function SidebarNav() {
                         <span>Cattle</span>
                     </NavLink>
                 </Menu.Item>
-                <Menu.Item key="/milktally" icon={<SettingOutlined />}>
+                <Menu.Item key="/milktally" icon={<UnorderedListOutlined />}>
                     <NavLink to="/milktally">
                         <span>Milk Tally</span>
                     </NavLink>
                 </Menu.Item>
-                <Menu.Item key="/logout" icon={<AppstoreOutlined />}>
+                <Menu.Item key="/logout" icon={<LoginOutlined />}>
                     <a href="/logout" >Logout</a>
                 </Menu.Item>
 

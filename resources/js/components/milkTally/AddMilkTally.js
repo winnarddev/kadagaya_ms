@@ -132,7 +132,10 @@ const AddMilkTally = ({ onAdd, showAdd, ListCattles, onAddSumbit, onUpdateSubmit
                         <Col span={12}>
                             <Form.Item label="Cattle" className="widht-95" name="cattle_id" rules={[{ required: true, message: 'Cattle is required!' }]}>
 
-                                <Select onChange={setCattle}>
+                                <Select onChange={setCattle}
+                                    showSearch
+                                    optionFilterProp="children"
+                                >
                                     {ListCattles.map((cattle, index) => (
                                         <Select.Option value={cattle.id} key={index}>{cattle.name}</Select.Option>
                                     ))}

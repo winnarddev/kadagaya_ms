@@ -15,8 +15,9 @@ h2{
     color: $white;
 }
 
-a{
-    color: $white;
+#main-app a:not(.ant-layout-sider-children ul li a) {
+    /*color: $white;*/
+    color: #008037;
 }
 
 .sidebar{   
@@ -34,4 +35,26 @@ a{
 
 .widht-95{
     width: 95%;
+}
+
+#main-app .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected{
+    background-color: #008037;
+}
+
+#main-app .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active{
+    color: #008037;
+
+}
+#main-app .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active::after{
+    border-bottom: 2px solid #008037;
+}
+
+button.ant-btn-primary{
+    background: #008037;
+    border-color: #008037;
+}
+
+button.ant-btn-primary:hover{
+    background: #06a74b;
+    border-color: #06a74b;
 }

@@ -4,6 +4,8 @@ import { Alert, Spin } from 'antd';
 import { Row, Col, Image } from 'antd';
 import { PageHeader } from 'antd';
 
+import { Menu } from 'antd';
+
 import CattleMilkTally from './CattleMilkTally';
 
 
@@ -16,6 +18,8 @@ const CattleProfile = () => {
     const [cattleProfileLoading, setcattleProfileLoading] = React.useState(true);
     const [cattleProfileFailure, setcattleProfileFailure] = React.useState(false);
     const [cattleProfile, setcattleProfile] = React.useState({});
+
+    // const [dateformat, setDateformat] = React.useState({ current: 0 });
 
 
     useEffect(() => {
@@ -35,6 +39,7 @@ const CattleProfile = () => {
     }, [])
 
 
+
     return (
         <div>
 
@@ -50,6 +55,19 @@ const CattleProfile = () => {
                             title={"Tag #: " + cattleProfile.tag}
                             subTitle={cattleProfile.name}
                         />
+
+                        <Menu mode="horizontal">
+                            <Menu.Item key="br" >
+                                Breeding Record
+                            </Menu.Item>
+                            <Menu.Item key="hr" >
+                                Health Record
+                            </Menu.Item>
+                            <Menu.Item key="s" >
+                                Services
+                            </Menu.Item>
+                        </Menu>
+
 
                         <Row>
                             <Col span={6}>

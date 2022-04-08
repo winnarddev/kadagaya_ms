@@ -26,13 +26,13 @@ const App = () => {
             <BrowserRouter>
                 <Layout style={{ minHeight: '100vh' }}>
 
-                    <Sider style={{ background: '#292929' }} >
-                        <div className="p-3"><img src="/images/kadagaya.png" style={{ width: '100%' }} /></div>
+                    <Sider /*style={{ background: '#292929' }}*/ >
+                        <div className="p-3"><img src="/images/kadagaya-w_1.png" style={{ width: '100%' }} /></div>
                         <SidebarNav />
                     </Sider>
 
                     <Layout>
-                        <Header style={{ background: '#292929' }}></Header>
+                        <Header /*style={{ background: '#292929' }}*/></Header>
                         <Content className="p-3" >
 
                             <Switch>
