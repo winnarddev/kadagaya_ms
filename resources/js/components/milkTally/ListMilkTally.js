@@ -54,9 +54,6 @@ const ListMilkTally = ({ listData, loadingMilkTallyData, listFailure }) => {
 
 
 
-
-
-
         </div>
 
     );
