@@ -78,7 +78,6 @@ const AddMilkTally = ({ onAdd, showAdd, ListCattles, onAddSumbit, onUpdateSubmit
         });
 
 
-
     }
 
 
@@ -101,8 +100,6 @@ const AddMilkTally = ({ onAdd, showAdd, ListCattles, onAddSumbit, onUpdateSubmit
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
-
-
 
 
 
